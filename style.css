@@ -1,0 +1,93 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium',sans-serif;
+}
+
+body {
+    background: #091921;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    font-size: 30px;
+
+}
+
+.clock {
+height: 400px;
+width: 400px;
+background-color:#091921;
+border: 12px solid #09181f;
+margin-top: 50px;
+border-radius: 50%;
+position: relative;
+box-shadow: 0 -15px 15px rgba(255,255,255,0.05),
+            inset 0 -15px 15px rgb(255, 255, 255,0.05),
+            0 -15px 15px rgba(0,0,0,0.3),
+            inset 0 -15px 15px rgb(0,0,0,0.3);
+}
+
+.clock .number{
+    --rotation :0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: #ccc;
+    text-align: center;
+    transform: rotate(var(--rotation));
+}
+.clock .number1 { --rotation :30deg;}
+.clock .number2 { --rotation :60deg;}
+.clock .number3 { --rotation :90deg;}
+.clock .number4 { --rotation :120deg;}
+.clock .number5 { --rotation :150deg;}
+.clock .number6 { --rotation :180deg;}
+.clock .number7 { --rotation :210deg;}
+.clock .number8 { --rotation :240deg;}
+.clock .number9 { --rotation :270deg;}
+.clock .number10 { --rotation :300deg;}
+.clock .number11 { --rotation :330deg;}
+.clock .hand{
+    --rotation:0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    z-index: 10;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+
+.clock::after{
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    z-index: 11;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;    
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+.clock .hand.second{
+    width: 2px;
+    height: 38%;
+    background-color: #fff;
+    border-radius: 6px 6px 0 0;
+}
+.clock .hand.minute{
+    width: 7px;
+    height: 34%;
+    background-color: #fff;
+    border-radius: 6px 6px 0 0;
+}
+
+.clock .hand.hour{
+    width: 8px;
+    height: 30%;
+    background-color: #ff105e;
+    border-radius: 6px 6px 0 0;
+}
